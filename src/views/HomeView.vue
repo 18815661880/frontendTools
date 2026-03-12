@@ -6,6 +6,12 @@ const iconMap = {
   color: '🎨',
   date: '🕒',
   image: '🖼️',
+  variable: '📝',
+  base64: '🔐',
+  url: '🔗',
+  'html-escape': '📄',
+  regex: '📋',
+  uuid: '🆔',
 }
 
 function getIcon(slug) {

@@ -2,6 +2,12 @@ import JsonTool from './JsonTool.vue'
 import ColorTool from './ColorTool.vue'
 import DateTool from './DateTool.vue'
 import ImageCompressTool from './ImageCompressTool.vue'
+import VariableNameTool from './VariableNameTool.vue'
+import Base64Tool from './Base64Tool.vue'
+import UrlTool from './UrlTool.vue'
+import HtmlEscapeTool from './HtmlEscapeTool.vue'
+import RegexTool from './RegexTool.vue'
+import UuidTool from './UuidTool.vue'
 
 export const tools = [
   {
@@ -27,6 +33,42 @@ export const tools = [
     slug: 'image',
     description: '本地压缩图片并下载，无需上传服务器',
     component: ImageCompressTool,
+  },
+  {
+    name: '变量名生成',
+    slug: 'variable',
+    description: '根据短语生成 camelCase、kebab-case、snake_case 等命名',
+    component: VariableNameTool,
+  },
+  {
+    name: 'Base64 编解码',
+    slug: 'base64',
+    description: '文本 Base64 编码与解码',
+    component: Base64Tool,
+  },
+  {
+    name: 'URL 编解码',
+    slug: 'url',
+    description: 'URL 编码 / 解码（encodeURIComponent）',
+    component: UrlTool,
+  },
+  {
+    name: 'HTML 转义',
+    slug: 'html-escape',
+    description: 'HTML 特殊字符转义与反转义',
+    component: HtmlEscapeTool,
+  },
+  {
+    name: '正则测试',
+    slug: 'regex',
+    description: '输入正则与测试文本，查看匹配结果',
+    component: RegexTool,
+  },
+  {
+    name: 'UUID 生成',
+    slug: 'uuid',
+    description: '生成 UUID v4，支持批量与复制',
+    component: UuidTool,
   },
 ]
 
