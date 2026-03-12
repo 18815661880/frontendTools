@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { tools } from '../tools/toolsConfig'
 
 const iconMap = {
@@ -12,10 +13,28 @@ const iconMap = {
   'html-escape': '📄',
   regex: '📋',
   uuid: '🆔',
+  'code-preview': '👁️',
 }
+
+const showContact = ref(false)
+const showReward = ref(false)
+const contactToast = ref('')
+const wechatId = 'fgfffh66668'
+const baseUrl = import.meta.env.BASE_URL
 
 function getIcon(slug) {
   return iconMap[slug] || '🛠️'
+}
+
+async function copyWechatId() {
+  try {
+    await navigator.clipboard.writeText(wechatId)
+    contactToast.value = '已复制微信号'
+    setTimeout(() => { contactToast.value = '' }, 1500)
+  } catch {
+    contactToast.value = '复制失败'
+    setTimeout(() => { contactToast.value = '' }, 1500)
+  }
 }
 </script>
 
@@ -47,6 +66,32 @@ function getIcon(slug) {
         <p class="tool-desc">{{ item.description }}</p>
         <span class="tool-enter">进入工具 →</span>
       </router-link>
+    </div>
+
+    <footer class="home-footer">
+      <button type="button" class="footer-btn" @click="showContact = true">联系我们</button>
+      <button type="button" class="footer-btn" @click="showReward = true">打赏作者</button>
+    </footer>
+
+    <div v-if="showContact" class="modal-mask" @click.self="showContact = false">
+      <div class="modal-box">
+        <h3 class="modal-title">联系我们</h3>
+        <p class="modal-row">微信号：<strong>{{ wechatId }}</strong></p>
+        <div class="modal-actions">
+          <button type="button" @click="copyWechatId">复制微信号</button>
+          <button type="button" class="btn-ghost" @click="showContact = false">关闭</button>
+        </div>
+        <p v-if="contactToast" class="modal-toast">{{ contactToast }}</p>
+      </div>
+    </div>
+
+    <div v-if="showReward" class="modal-mask" @click.self="showReward = false">
+      <div class="modal-box modal-box--reward">
+        <h3 class="modal-title">打赏作者</h3>
+        <p class="modal-hint">推荐使用微信支付</p>
+        <img :src="`${baseUrl}wechat-reward.png`" alt="微信收款码" class="reward-qr" @error="$event.target.style.display='none'" />
+        <button type="button" class="btn-ghost" @click="showReward = false">关闭</button>
+      </div>
     </div>
   </section>
 </template>
@@ -162,5 +207,98 @@ function getIcon(slug) {
   font-size: 14px;
   font-weight: 600;
   margin-top: auto;
+}
+
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-btn {
+  padding: 8px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #475569;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  max-width: 90vw;
+}
+
+.modal-box--reward {
+  text-align: center;
+}
+
+.modal-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.modal-row {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.modal-hint {
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-toast {
+  margin: 10px 0 0;
+  color: #16a34a;
+  font-size: 13px;
+}
+
+.reward-qr {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+  border-radius: 8px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-ghost:hover {
+  background: #f1f5f9;
+  color: #475569;
 }
 </style>

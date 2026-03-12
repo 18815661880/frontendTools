@@ -8,6 +8,7 @@ import UrlTool from './UrlTool.vue'
 import HtmlEscapeTool from './HtmlEscapeTool.vue'
 import RegexTool from './RegexTool.vue'
 import UuidTool from './UuidTool.vue'
+import CodePreviewTool from './CodePreviewTool.vue'
 
 export const tools = [
   {
@@ -69,6 +70,12 @@ export const tools = [
     slug: 'uuid',
     description: '生成 UUID v4，支持批量与复制',
     component: UuidTool,
+  },
+  {
+    name: '代码预览',
+    slug: 'code-preview',
+    description: '输入 HTML 代码，右侧实时预览渲染效果',
+    component: CodePreviewTool,
   },
 ]
 
