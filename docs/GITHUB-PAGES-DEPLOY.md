@@ -42,8 +42,8 @@ git push origin master
 ## 四、站点地址
 
 - **项目站点**（当前配置）：  
-  `https://<你的用户名>.github.io/frontendTools-gitHub/`  
-  注意末尾斜杠，且 `vite.config.js` 中 `base` 必须为 `'/frontendTools-gitHub/'`（已配置）。
+`https://<你的用户名>.github.io/frontendTools/`
+  注意末尾斜杠，且 `vite.config.js` 中 `base` 必须为 `'/frontendTools/'`（已配置）。
 
 - **用户/组织站点**（仓库名为 `用户名.github.io`）：  
   地址为 `https://<用户名>.github.io/`。  
