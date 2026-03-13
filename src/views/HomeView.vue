@@ -54,13 +54,8 @@ async function copyWechatId() {
 
     <h2 class="section-title">选择工具</h2>
     <div class="tool-grid">
-      <router-link
-        v-for="(item, i) in tools"
-        :key="item.slug"
-        :to="`/tools/${item.slug}`"
-        class="tool-card"
-        :style="{ '--i': i }"
-      >
+      <router-link v-for="(item, i) in tools" :key="item.slug" :to="`/tools/${item.slug}`" class="tool-card"
+        :style="{ '--i': i }">
         <div class="tool-icon-wrap">
           <span class="tool-icon">{{ getIcon(item.slug) }}</span>
         </div>
@@ -74,7 +69,7 @@ async function copyWechatId() {
       <button type="button" class="footer-btn" @click="showContact = true">
         <span class="footer-btn-icon">✉</span> 联系我们
       </button>
-      <button type="button" class="footer-btn" @click="showReward = true">
+      <button v-if="false" type="button" class="footer-btn" @click="showReward = true">
         <span class="footer-btn-icon">♥</span> 打赏作者
       </button>
     </footer>
@@ -95,7 +90,8 @@ async function copyWechatId() {
       <div class="modal-box modal-box--reward">
         <h3 class="modal-title">打赏作者</h3>
         <p class="modal-hint">推荐使用微信支付</p>
-        <img :src="`${baseUrl}wechat-reward.png`" alt="微信收款码" class="reward-qr" @error="$event.target.style.display='none'" />
+        <img :src="`${baseUrl}wechat-reward.png`" alt="微信收款码" class="reward-qr"
+          @error="$event.target.style.display = 'none'" />
         <button type="button" class="btn-ghost" @click="showReward = false">关闭</button>
       </div>
     </div>
@@ -333,8 +329,13 @@ async function copyWechatId() {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-box {
@@ -352,6 +353,7 @@ async function copyWechatId() {
     opacity: 0;
     transform: scale(0.96) translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
