@@ -9,6 +9,11 @@ import HtmlEscapeTool from './HtmlEscapeTool.vue'
 import RegexTool from './RegexTool.vue'
 import UuidTool from './UuidTool.vue'
 import CodePreviewTool from './CodePreviewTool.vue'
+import RemPxTool from './RemPxTool.vue'
+import PlaceholderTool from './PlaceholderTool.vue'
+import HashTool from './HashTool.vue'
+import JwtTool from './JwtTool.vue'
+import NumberBaseTool from './NumberBaseTool.vue'
 
 export const tools = [
   {
@@ -76,6 +81,36 @@ export const tools = [
     slug: 'code-preview',
     description: '输入 HTML 代码，右侧实时预览渲染效果',
     component: CodePreviewTool,
+  },
+  {
+    name: 'PX / REM 换算',
+    slug: 'rem-px',
+    description: '根据基准字号在 px 与 rem 之间互相换算',
+    component: RemPxTool,
+  },
+  {
+    name: '占位文本生成',
+    slug: 'placeholder',
+    description: '生成 Lorem 或中文占位段落，用于排版预览',
+    component: PlaceholderTool,
+  },
+  {
+    name: '哈希计算',
+    slug: 'hash',
+    description: 'SHA-256 / SHA-384 / SHA-512 哈希（Hex 输出）',
+    component: HashTool,
+  },
+  {
+    name: 'JWT 解析',
+    slug: 'jwt',
+    description: '解析 JWT 查看 Header 与 Payload，不校验签名',
+    component: JwtTool,
+  },
+  {
+    name: '进制转换',
+    slug: 'number-base',
+    description: '二 / 八 / 十 / 十六进制互转',
+    component: NumberBaseTool,
   },
 ]
 

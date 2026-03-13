@@ -14,6 +14,11 @@ const iconMap = {
   regex: '📋',
   uuid: '🆔',
   'code-preview': '👁️',
+  'rem-px': '📐',
+  placeholder: '📄',
+  hash: '🔒',
+  jwt: '🎫',
+  'number-base': '🔢',
 }
 
 const showContact = ref(false)
