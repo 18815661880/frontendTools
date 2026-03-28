@@ -19,6 +19,7 @@ const iconMap = {
   hash: '🔒',
   jwt: '🎫',
   'number-base': '🔢',
+  password: '🔑',
 }
 
 const showContact = ref(false)
@@ -74,7 +75,7 @@ async function copyWechatId() {
       <button type="button" class="footer-btn" @click="showContact = true">
         <span class="footer-btn-icon">✉</span> 联系我们
       </button>
-      <button v-if="false" type="button" class="footer-btn" @click="showReward = true">
+      <button  type="button" class="footer-btn" @click="showReward = true">
         <span class="footer-btn-icon">♥</span> 打赏作者
       </button>
     </footer>

@@ -14,6 +14,7 @@ import PlaceholderTool from './PlaceholderTool.vue'
 import HashTool from './HashTool.vue'
 import JwtTool from './JwtTool.vue'
 import NumberBaseTool from './NumberBaseTool.vue'
+import PasswordTool from './PasswordTool.vue'
 
 export const tools = [
   {
@@ -111,6 +112,12 @@ export const tools = [
     slug: 'number-base',
     description: '二 / 八 / 十 / 十六进制互转',
     component: NumberBaseTool,
+  },
+  {
+    name: '密码生成器',
+    slug: 'password',
+    description: '按长度与字符集生成随机密码，支持排除字符与复制',
+    component: PasswordTool,
   },
 ]
 
